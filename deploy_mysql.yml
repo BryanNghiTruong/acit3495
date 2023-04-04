@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: mysql-app
-          image: us.gcr.io/proj-370223/mysql_service
+          image: us.gcr.io/project2-382721/mysql_service
           ports:
             - name: http
               containerPort: 3306
