@@ -6,7 +6,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: auth
+    name: auth_service
   minReplicas: 3 # minimum amount of replicas for the service at all times
   maxReplicas: 10 # maximum number of replicas while under heavy load
   targetCPUUtilizationPercentage: 20 # the cpu usage % when a new replica will be spun up
@@ -21,7 +21,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: filesystem
+    name: file_service
   minReplicas: 3 # minimum amount of replicas for the service at all times
   maxReplicas: 10 # maximum number of replicas while under heavy load
   targetCPUUtilizationPercentage: 20 # the cpu usage % when a new replica will be spun up
@@ -36,7 +36,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: videostreaming
+    name: vid_streaming_service
   minReplicas: 3 # minimum amount of replicas for the service at all times
   maxReplicas: 10 # maximum number of replicas while under heavy load
   targetCPUUtilizationPercentage: 10 # the cpu usage % when a new replica will be spun up  
@@ -51,7 +51,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: uploadvideo
+    name: vid_upload_service
   minReplicas: 3 # minimum amount of replicas for the service at all times
   maxReplicas: 10 # maximum number of replicas while under heavy load
   targetCPUUtilizationPercentage: 10 # the cpu usage % when a new replica will be spun up
