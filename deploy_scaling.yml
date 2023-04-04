@@ -1,0 +1,57 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: scale-auth
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: auth
+  minReplicas: 3 # minimum amount of replicas for the service at all times
+  maxReplicas: 10 # maximum number of replicas while under heavy load
+  targetCPUUtilizationPercentage: 20 # the cpu usage % when a new replica will be spun up
+
+  ---
+
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: scale-filesystem
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: filesystem
+  minReplicas: 3 # minimum amount of replicas for the service at all times
+  maxReplicas: 10 # maximum number of replicas while under heavy load
+  targetCPUUtilizationPercentage: 20 # the cpu usage % when a new replica will be spun up
+
+  ---
+
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: scale-streamvideo
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: videostreaming
+  minReplicas: 3 # minimum amount of replicas for the service at all times
+  maxReplicas: 10 # maximum number of replicas while under heavy load
+  targetCPUUtilizationPercentage: 10 # the cpu usage % when a new replica will be spun up  
+
+  ---
+
+  apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: scale-uploadvideo
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: uploadvideo
+  minReplicas: 3 # minimum amount of replicas for the service at all times
+  maxReplicas: 10 # maximum number of replicas while under heavy load
+  targetCPUUtilizationPercentage: 10 # the cpu usage % when a new replica will be spun up

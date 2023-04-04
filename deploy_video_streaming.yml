@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: videostreaming
+  labels:
+    app: videostreaming
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: videostreaming-app1
+  template:
+    metadata:
+      labels:
+        app: videostreaming-app1
+    spec:
+      containers:
+        - name: videostreaming-app
+          image: us.gcr.io/project2-382721/vid_streaming_service
+          ports:
+            - name: http
+              containerPort: 8100

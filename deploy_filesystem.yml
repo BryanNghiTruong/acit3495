@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: filesystem
+  labels:
+    app: filesystem
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: filesystem-app1
+  template:
+    metadata:
+      labels:
+        app: filesystem-app1
+    spec:
+      containers:
+        - name: filesystem-app
+          image: us.gcr.io/project2-382721/file_service
+          ports:
+            - name: http
+              containerPort: 8090
